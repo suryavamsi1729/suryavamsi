@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+
+@import "tailwindcss";
+
+@font-face {
+    font-family: "Respira";
+    src: url("/fonts/Respira-Black.ttf") format("truetype");
+}
+@font-face {
+    font-family: "GTMono";
+    src: url("/fonts/GT America Mono Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Editoral";
+    src: url("/fonts/edtorila.otf") format("opentype");
+}
+@font-face {
+    font-family: "EditoralThin";
+    src: url("/fonts/Edtorialthin.otf") format("opentype");
+}
+
+/* setting themes */
+@theme{
+  --color-brand: #AEA5D6;
+  --color-white: #F3F3F0;
+  --color-black: #191B20;
+  --color-text-dark: #707173;
+  --color-text-light: #979898;
+  --color-text-secondary: #868688;
+  --font-respira: "Respira", sans-serif;
+  --font-mono: "GTMono", monospace;
+  --font-editorial: "Editoral", monospace;
+  --font-editorial-thin: "EditoralThin", monospace;
+  --font-sans: "Mona Sans", sans-serif;
+  --font-serif: "DM Serif Text", serif;
+}
+
+html,
+body {
+    width: 100%;
+    background-color: #F3F3F0;
+    color: #191B20;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+::selection {
+    background: #CFC4FE;
+    color: #191B20;
+}
