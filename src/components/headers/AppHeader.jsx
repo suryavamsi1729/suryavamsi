@@ -276,7 +276,7 @@ const AppHeader = () => {
 
         const tl = gsap.timeline({ paused: true });
         tl.to(upText.chars, { y: "-100%", duration: 0.26, stagger: 0.06 }, 0);
-        tl.to(downText.chars, { y: "-50%", duration: 0.26, stagger: 0.06 }, 0);
+        tl.to(downText.chars, { y: "-100%", duration: 0.26, stagger: 0.06 }, 0);
 
         ref.addEventListener("mouseenter", () => tl.play());
         ref.addEventListener("mouseleave", () => tl.reverse());
@@ -294,7 +294,7 @@ const AppHeader = () => {
 
         const nameTL = gsap.timeline({ paused: true });
         nameTL.to(nameUp.chars, { y: "-100%", duration: 0.3, stagger: 0.04 }, 0);
-        nameTL.to(nameDown.chars, { y: "-50%", duration: 0.3, stagger: 0.04 }, 0);
+        nameTL.to(nameDown.chars, { y: "-100%", duration: 0.3, stagger: 0.04 }, 0);
 
         nameRef.current.addEventListener("mouseenter", () => nameTL.play());
         nameRef.current.addEventListener("mouseleave", () => nameTL.reverse());
