@@ -5,7 +5,6 @@
 // import { SplitText } from "gsap/all";
 // import { useRef } from "react";
 
-
 // const AppHeader = () => {''
 //     const InfoRef = useRef(null);
 //     const WorkRef = useRef(null);
@@ -25,7 +24,7 @@
 //                         gsap.set(mobileMenuRef.current,{display:"none"});
 //                     });
 //                 }
-//         }   
+//         }
 //         gsap.set(mobileMenuRef.current,{display:"none"});
 //         const menuTL = gsap.timeline({paused: true, reversed: true});
 //         menuTL.fromTo(".menu-col",{y:"-100%"},{y:"0%",duration:0.6,stagger:0.1,ease:"power2.in"});
@@ -313,18 +312,10 @@ const AppHeader = () => {
   };
 
   return (
-    <header
-      ref={headerRef}
-      className="z-40 fixed top-0 left-0 right-0 bg-transparent px-4 md:px-6 pt-4 md:pt-8 pb-8 md:pb-12"
-    >
+    <header ref={headerRef} className="z-40 fixed top-0 left-0 right-0 bg-transparent px-4 md:px-6 pt-4 md:pt-8 pb-8 md:pb-12">
       <div className="w-full h-auto grid grid-cols-6 md:grid-cols-12 gap-4">
-
         <div className="col-span-1 flex md:hidden justify-start items-start z-50">
-          <button
-            ref={menuBtnRef}
-            onClick={handleMenuToggle}
-            className="w-8 pb-2 pr-2 flex justify-center items-center bg-transparent"
-          >
+          <button ref={menuBtnRef} onClick={handleMenuToggle} className="w-8 pb-2 pr-2 flex justify-center items-center bg-transparent">
             <div className="w-full h-full flex justify-start items-start">
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 4 12" fill="none">                                 <path d="M4 1H1V11H4" stroke="currentColor" strokeWidth="var(--svg-stroke-width--main)" vectorEffect="non-scaling-stroke"></path>
                 </svg>
@@ -340,15 +331,9 @@ const AppHeader = () => {
             </div>
           </button>
         </div>
-
-        
         <div className="hidden md:col-span-2 md:flex flex-col gap-0.5 z-50">
           {["INFO", "WORK", "ARCHIVE", "CONTACT"].map((item, i) => (
-            <a
-              key={i}
-              href={`#${item.toLowerCase()}`}
-              className="font-mono flex flex-row gap-1 px-2 pb-4 overflow-clip"
-            >
+            <a key={i} href={`#${item.toLowerCase()}`} className="font-mono flex flex-row gap-1 px-2 pb-4 overflow-clip">
               <div className="text-[9px]">{String(i + 1).padStart(2, "0")}</div>
               <div
                 ref={(el) => (navRefs.current[i] = el)}
@@ -362,8 +347,6 @@ const AppHeader = () => {
             </a>
           ))}
         </div>
-
-        
         <div className="col-start-2 col-span-3 md:col-start-7 md:col-span-3 flex flex-col gap-0.5 z-50">
           <div ref={nameRef} className="relative overflow-hidden">
             <div className="text-up text-[10px] md:text-xs uppercase">SURYA VAMSI</div>
@@ -375,27 +358,15 @@ const AppHeader = () => {
             FRONTEND DEVELOPER
           </div>
         </div>
-
-        
         <div className="col-start-5 col-span-2 md:col-start-10 md:col-span-3 flex flex-col gap-0.5 z-50">
           <Time />
           <DateComp />
         </div>
-
-        
-        <div
-          ref={mobileMenuRef}
-          className="fixed top-0 left-0 w-screen h-screen hidden"
-        >
+        <div ref={mobileMenuRef} className="fixed top-0 left-0 w-screen h-screen hidden ">
           <div className="relative menu-content w-full h-full px-4 z-50">
             <div className="h-full flex flex-col gap-4 pt-36 ml-16">
               {["Info", "Work", "Archive", "Contact"].map((item, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="menu-link font-mono flex flex-row gap-2 px-2 pb-4"
-                  onClick={handleMenuToggle}
-                >
+                <a key={i} href="#" className="menu-link font-mono flex flex-row gap-2 px-2 pb-4" onClick={handleMenuToggle}>
                   <div className="menu-link-ind text-[10px]">
                     {String(i + 1).padStart(2, "0")}
                   </div>
