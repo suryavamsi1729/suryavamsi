@@ -25,7 +25,7 @@ const DateComp = ()=>{
         return () => clearTimeout(timer);
   }, []);
     return (
-        <div className="w-full font-mono text-[10px]/[12px] md:text-xs/4 text-[#191B20]">
+        <div className="w-full font-mono text-[10px]/[12px] md:text-xs/4 ">
             {date}
         </div>
     )

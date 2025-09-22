@@ -1,8 +1,8 @@
 import gsap from 'gsap'
 import { ScrollTrigger,Flip,SplitText } from 'gsap/all'
-import { AppHeader } from '@headers'
-import { HeroPage } from '@pages'
 import './App.css'
+import { HomePage } from './pages'
+import AppProvider from './context/AppProvider'
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, Flip, SplitText)
@@ -13,9 +13,9 @@ function App() {
 
   return (
     <>
-      <AppHeader/>
-      <HeroPage/>
-
+      <AppProvider>
+          <HomePage/>
+      </AppProvider>
     </>
   )
 }

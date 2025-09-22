@@ -23,7 +23,7 @@ const Time = () => {
   }, []);
 
   return (
-    <div className="font-mono text-[10px]/[12px] md:text-xs/4 text-[#191B20]" ref={timeRef}></div>
+    <div className="font-mono text-[10px]/[12px] md:text-xs/4 " ref={timeRef}></div>
   );
 };
 

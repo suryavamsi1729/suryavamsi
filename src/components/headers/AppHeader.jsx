@@ -228,6 +228,8 @@ import { SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import Time from "@common/Time";
 import DateComp from "@common/DateComp";
+import { useTheme } from "../../hooks/useTheme";
+import DownloadButton from "../ui/DownloadButton";
 
 
 const AppHeader = () => {
@@ -237,6 +239,7 @@ const AppHeader = () => {
   const navRefs = useRef([]);
   const nameRef = useRef(null);
   const menuTL = useRef(null);
+  const {theme} = useTheme();
 
   useGSAP(() => {
     
@@ -312,7 +315,7 @@ const AppHeader = () => {
   };
 
   return (
-    <header ref={headerRef} className="z-40 fixed top-0 left-0 right-0 bg-transparent px-4 md:px-6 pt-4 md:pt-8 pb-8 md:pb-12">
+    <header ref={headerRef} className={` z-40 fixed top-0 left-0 right-0 bg-transparent px-4 md:px-6 pt-4 md:pt-8 pb-8 md:pb-12 ${theme=="light"?"text-black":"text-white"} transition-colors duration-300 ease-in-out`}>
       <div className="w-full h-auto grid grid-cols-6 md:grid-cols-12 gap-4">
         <div className="col-span-1 flex md:hidden justify-start items-start z-50">
           <button ref={menuBtnRef} onClick={handleMenuToggle} className="w-8 pb-2 pr-2 flex justify-center items-center bg-transparent">
@@ -347,7 +350,7 @@ const AppHeader = () => {
             </a>
           ))}
         </div>
-        <div className="col-start-2 col-span-3 md:col-start-7 md:col-span-3 flex flex-col gap-0.5 z-50">
+        <div className="col-start-2 col-span-3 md:col-start-7 md:col-span-3 lg:col-start-7 lg:col-span-2 flex flex-col gap-0.5 z-50">
           <div ref={nameRef} className="relative overflow-hidden">
             <div className="text-up text-[10px] md:text-xs uppercase">SURYA VAMSI</div>
             <div className="text-down text-[10px] md:text-xs uppercase absolute inset-[100%_auto_auto_0%]">
@@ -358,11 +361,15 @@ const AppHeader = () => {
             FRONTEND DEVELOPER
           </div>
         </div>
-        <div className="col-start-5 col-span-2 md:col-start-10 md:col-span-3 flex flex-col gap-0.5 z-50">
+        <div className="col-start-5 col-span-2 md:col-start-10 md:col-span-3 lg:col-start-9 lg:col-span-2 flex flex-col gap-0.5 z-50">
           <Time />
           <DateComp />
+          
         </div>
-        <div ref={mobileMenuRef} className="fixed top-0 left-0 w-screen h-screen hidden ">
+        <div className="hidden lg:col-start-11 lg:col-span-2 lg:flex flex-col justify-start items-center gap-0.5 z-50">
+          <DownloadButton/>
+        </div>
+        <div ref={mobileMenuRef} className="fixed top-0 left-0 w-screen h-screen hidden">
           <div className="relative menu-content w-full h-full px-4 z-50">
             <div className="h-full flex flex-col gap-4 pt-36 ml-16">
               {["Info", "Work", "Archive", "Contact"].map((item, i) => (

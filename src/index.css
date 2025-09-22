@@ -42,7 +42,6 @@ body {
     background-color: #F3F3F0;
     color: #191B20;
     scroll-behavior: smooth;
-    overflow-x: hidden;
 }
 
 ::selection {
