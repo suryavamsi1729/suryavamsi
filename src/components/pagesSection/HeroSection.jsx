@@ -126,6 +126,7 @@ const HeroSection = () => {
             }
         );
         
+        
     };
     return (
         <section ref={infoRef} id="info" className={`relative min-h-screen flex flex-col bg-white animate-wrapper ${theme=="light"?"text-black":"text-white/40"} transition-colors duration-300 ease-in-out`}>
