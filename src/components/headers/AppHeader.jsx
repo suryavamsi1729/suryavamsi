@@ -315,7 +315,8 @@ const AppHeader = () => {
   };
 
   return (
-    <header ref={headerRef} className={`w-screen z-40 fixed top-0 left-0 right-0 bg-transparent px-4 md:px-6 pt-4 md:pt-8 pb-8 md:pb-12 ${theme=="light"?"text-black":"text-white"} transition-colors duration-300 ease-in-out`}>
+    // bg-linear-to-b from-black from-0% via-60% via-black  to-100% to-[#f3f4ef00]
+    <header id="nav-section" ref={headerRef} className={`w-screen z-40 fixed top-0 left-0 right-0 bg-transparent px-4 md:px-6 pt-4 md:pt-8 pb-8 md:pb-12  ${theme=="light"?"text-black ":"text-white "} transition-colors duration-300 ease-in-out`}>
       <div className="w-full h-auto grid grid-cols-6 md:grid-cols-12 gap-4">
         <div className="col-span-1 flex md:hidden justify-start items-start z-50">
           <button ref={menuBtnRef} onClick={handleMenuToggle} className="w-8 pb-2 pr-2 flex justify-center items-center bg-transparent">
@@ -334,18 +335,21 @@ const AppHeader = () => {
             </div>
           </button>
         </div>
-        <div className="hidden md:col-span-2 md:flex flex-col gap-0.5 z-50">
+        <div className="hidden md:col-span-2 md:flex flex-col gap-1 z-50">
           {["INFO", "WORK", "ARCHIVE", "CONTACT"].map((item, i) => (
-            <a key={i} href={`#${item.toLowerCase()}`} className="font-mono flex flex-row gap-1 px-2 pb-4 overflow-clip">
-              <div className="text-[9px]">{String(i + 1).padStart(2, "0")}</div>
+            <a key={i} href={`#${item.toLowerCase()}`} className="relative w-fit font-mono rounded-md flex flex-row gap-1 px-2 py-2 overflow-clip">
+              <div className="relative z-40 text-[9px]">{String(i + 1).padStart(2, "0")}</div>
               <div
                 ref={(el) => (navRefs.current[i] = el)}
-                className="relative overflow-hidden"
+                className="relative overflow-hidden z-40"
               >
                 <div className="text-up text-xs uppercase">{item}</div>
                 <div className="text-down text-xs uppercase absolute inset-[100%_auto_auto_0%]">
                   {item}
                 </div>
+              </div>
+              <div id="section-Scrolle-percent" className="absolute inset-0 bg-[#8348ff] z-30">
+
               </div>
             </a>
           ))}

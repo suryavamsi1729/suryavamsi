@@ -44,7 +44,7 @@ const LandingPageTransition = forwardRef(({loading},ref) => {
   }));
 
   return (
-      <div ref={scopeRf} className="animate-wrapper absolute top-0 left-0 overflow-hidden w-full h-screen grid grid-cols-6 cursor-pointer transition-container z-50">
+      <div ref={scopeRf} className="animate-wrapper fixed top-0 left-0 overflow-hidden w-full h-screen grid grid-cols-6 cursor-pointer transition-container z-[1000]">
         {[...Array(6)].map((_, i) => (
           <div key={`top-${i}`} className="top-column h-[50vh] bg-brand"></div>
         ))}

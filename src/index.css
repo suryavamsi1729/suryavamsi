@@ -41,7 +41,7 @@ body {
     width: 100%;
     background-color: #F3F3F0;
     color: #191B20;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
 }
 
 ::selection {
