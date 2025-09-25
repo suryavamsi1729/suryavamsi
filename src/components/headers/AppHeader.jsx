@@ -315,7 +315,7 @@ const AppHeader = () => {
   };
 
   return (
-    <header ref={headerRef} className={` z-40 fixed top-0 left-0 right-0 bg-transparent px-4 md:px-6 pt-4 md:pt-8 pb-8 md:pb-12 ${theme=="light"?"text-black":"text-white"} transition-colors duration-300 ease-in-out`}>
+    <header ref={headerRef} className={`w-screen z-40 fixed top-0 left-0 right-0 bg-transparent px-4 md:px-6 pt-4 md:pt-8 pb-8 md:pb-12 ${theme=="light"?"text-black":"text-white"} transition-colors duration-300 ease-in-out`}>
       <div className="w-full h-auto grid grid-cols-6 md:grid-cols-12 gap-4">
         <div className="col-span-1 flex md:hidden justify-start items-start z-50">
           <button ref={menuBtnRef} onClick={handleMenuToggle} className="w-8 pb-2 pr-2 flex justify-center items-center bg-transparent">

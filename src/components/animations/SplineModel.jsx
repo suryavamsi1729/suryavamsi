@@ -8,7 +8,7 @@ export default function SplineModel({url,className,setLoading}) {
   }
   
   return (
-    <div className={cn("w-screen h-screen",className)}>
+    <div className={cn("w-screen h-screen fixed inset-0",className)}>
         <Spline scene={url} onLoad={handelLoad}  />
     </div>
   );

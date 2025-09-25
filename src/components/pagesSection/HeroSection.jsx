@@ -129,12 +129,12 @@ const HeroSection = () => {
         
     };
     return (
-        <section ref={infoRef} id="info" className={`relative min-h-screen flex flex-col bg-white animate-wrapper ${theme=="light"?"text-black":"text-white/40"} transition-colors duration-300 ease-in-out`}>
+        <section ref={infoRef} id="info" className={`relative w-full min-h-screen flex flex-col bg-white animate-wrapper ${theme=="light"?"text-black":"text-white/40"} transition-colors duration-300 ease-in-out flex flex-col justify-end items-center p-4 md:p-6`}>
             <LandingPageTransition ref={loadingPageRef} loading={loading}/>
             <SplineModel setLoading={setLoading}  url={"https://prod.spline.design/jR40IUSh8RJ0R38K/scene.splinecode"}/>
             <div className='absolute bottom-0 right-0 w-[240px] h-14 bg-white'>
             </div>
-            <div className='absolute inset-0 flex flex-col justify-end items-center p-4 md:p-6 '>
+            {/* <div className='absolute inset-0 flex flex-col justify-end items-center p-4 md:p-6 '> */}
                 <div className='w-full h-auto grid grid-cols-1 md:grid-cols-12 justify-between items-center gap-4'>
                     <div ref={infoText} className='col-span-4 max-w-xs flex flex-col justify-center items-start gap-2'>
                         <p className='text-slide line-clamp-3 lg:line-clamp-4  md:text-lg font-semibold text-black font-editorial-thin overflow-hidden'>
@@ -165,7 +165,7 @@ const HeroSection = () => {
                         }
                     </div>
                 </div>
-            </div>
+            {/* </div> */}
         </section>
     );
 };
