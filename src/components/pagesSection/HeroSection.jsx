@@ -1,6 +1,6 @@
 import { useRef} from 'react';
 import { useGSAP } from '@gsap/react';
-import { SplitText } from 'gsap/all';
+import { ScrollTrigger, SplitText } from 'gsap/all';
 import { useTheme } from '../../hooks/useTheme';
 import gsap from 'gsap';
 
@@ -67,7 +67,7 @@ const HeroSection = ({loadingPageRef}) => {
                 stagger:0.05,
             },"<");
         });
-        
+        ScrollTrigger.refresh();
     },{ scope: infoRef });
     const handelMouseEnter = (e)=>{
         const parent = e.currentTarget.parentElement;

@@ -3,7 +3,7 @@ import AboutSection from "./AboutSection";
 import AboutTitle from "./AboutTitle";
 import { useRef } from "react";
 import gsap from "gsap";
-import { SplitText } from "gsap/all";
+import { ScrollTrigger, SplitText } from "gsap/all";
 
 
 const SkillsSection = () => {
@@ -85,6 +85,7 @@ const SkillsSection = () => {
                 start: "top bottom",
                 end: "top 20%",
                 scrub: true,
+                invalidateOnRefresh: true
             }
         });
         tl.to("#skillText",{
@@ -95,7 +96,6 @@ const SkillsSection = () => {
             skillsItemsRef.current.forEach((ref) => {
             if (!ref) return;
             const skillItem = ref.querySelectorAll(".skill-item");
-            console.log(skillItem);
             const title = new SplitText(ref.querySelector(".skill-title"), { type: "chars" });
 
             const resetState = () => {
@@ -112,6 +112,7 @@ const SkillsSection = () => {
                 scrollTrigger: {
                 trigger: ref,
                 start: "top 80%",
+                invalidateOnRefresh: true,
                 toggleActions: "restart none none none",
                 onLeaveBack: () => resetState(), // reset when scrolling back past the section
                 },
@@ -126,7 +127,7 @@ const SkillsSection = () => {
             }, "<")
             });
         });
-
+        ScrollTrigger.refresh(); 
     },{scope:scopeRef})
     return (
         <section ref={scopeRef} id="Skills-section" className='relative w-full flex flex-col justify-start items-start  bg-black '>

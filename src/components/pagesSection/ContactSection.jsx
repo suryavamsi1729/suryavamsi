@@ -2,7 +2,7 @@ import { CornerDownRight } from 'lucide-react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useRef } from 'react';
-import { SplitText } from 'gsap/all';
+import { ScrollTrigger, SplitText } from 'gsap/all';
 const ContactSection = () => {
     const scoperef = useRef(null);
     const connect = [
@@ -27,6 +27,7 @@ const ContactSection = () => {
                 trigger:scoperef.current,
                 start: "top 20%",
                 toggleActions: "play none none reverse",
+                invalidateOnRefresh: true,
             }
         });
             const contactText = new SplitText("#title-conect-text", { type: "chars" });
@@ -37,7 +38,7 @@ const ContactSection = () => {
                 duration:0.6,
             });
         });
-        
+        ScrollTrigger.refresh();
     },{scope:scoperef});
 
   return (

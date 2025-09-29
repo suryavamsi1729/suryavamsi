@@ -11,6 +11,7 @@ import WorkSection from '../components/pagesSection/WorkSection';
 import SkillsSection from '../components/pagesSection/SkillsSection';
 import { Contact } from 'lucide-react';
 import ContactSection from '../components/pagesSection/ContactSection';
+import { ScrollTrigger } from 'gsap/all';
 
 const HomePage = () => {
     const loadingPageRef = useRef(null);
@@ -18,13 +19,14 @@ const HomePage = () => {
     const parentRef = useRef(null);
     useGSAP(()=>{
         const aboutText = parentRef.current.querySelectorAll("#aboutText")[0];
-        // const AboutSection = parentRef.current.querySelectorAll("#About-myself")[0];
         const infoSkillsSection = parentRef.current.querySelectorAll("#info-Skills-section")[0]; 
-        
-        gsap.to(aboutText,{
+        gsap.set(aboutText,{
+            opacity:0,
+            scale:0.8,
+        })
+        gsap.fromTo(aboutText,{
             opacity:1,
-            scale:1,
-
+            scale:1
         },{
             opacity:0.1,
             scale:1,
@@ -34,8 +36,10 @@ const HomePage = () => {
                 start: "top 80%",
                 end: "top 20%",
                 scrub:true,
+                invalidateOnRefresh: true,
             }
-        })
+        });
+        ScrollTrigger.refresh();
     },{scope:parentRef});
     return (
         <>

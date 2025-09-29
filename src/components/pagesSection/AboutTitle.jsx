@@ -3,6 +3,7 @@ import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useTheme } from '../../hooks/useTheme';
+import { ScrollTrigger } from "gsap/all";
 
 
 export default function AboutTitle({title}) {
@@ -17,7 +18,6 @@ export default function AboutTitle({title}) {
     gsap.set(".about-text",{
       opacity:0,
       scale:0.8,
-    
     });
     gsap.to(
       section,
@@ -29,6 +29,7 @@ export default function AboutTitle({title}) {
             start: "top top",
             end: "bottom top",
             scrub: true,
+            invalidateOnRefresh: true,
             onUpdate : (self) => {
               if(self.progress>0.9){
                 changeThemeTo("dark");
@@ -51,9 +52,10 @@ export default function AboutTitle({title}) {
             start: "bottom 70%",
             end: "bottom top",
             scrub: true,
+            invalidateOnRefresh: true,
         }
     });
-
+    ScrollTrigger.refresh();
   }, {scope:sectionRef});
 
   return (

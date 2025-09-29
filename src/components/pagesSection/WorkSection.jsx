@@ -216,6 +216,7 @@ const WorkSection = () => {
           start: index === 0 ? "top top" : "top bottom",
           end: index === triggers.length - 1 ? "bottom bottom" : "bottom top",
           scrub: true,
+          invalidateOnRefresh: true,
           // markers: true, // uncomment for debugging
         },
         defaults: { ease: "none" },
@@ -246,6 +247,7 @@ const WorkSection = () => {
         });
       }
     });
+    ScrollTrigger.refresh(); 
   }, { scope: scopeRef });
 
   return (

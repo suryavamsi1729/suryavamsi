@@ -213,6 +213,7 @@ export default function AppRoutes() {
       trigger: skillInfoSection,
       start: "top bottom",
       end: "bottom 20%",
+      invalidateOnRefresh: true,
       onEnter: () => {
         changeThemeTo("dark");
         setNavBg("linear-gradient(to bottom, #191b20 0%, #191b20 60%, #f3f4ef00 100%)");
@@ -233,6 +234,7 @@ export default function AppRoutes() {
       trigger: skillsSection,
       start: "top bottom",
       end: "bottom 20%",
+      invalidateOnRefresh: true,
       onLeave: () => setNavBg("transparent"),
       onEnterBack: () =>
         setNavBg("linear-gradient(to bottom, #191b20 0%, #191b20 60%, #f3f4ef00 100%)"),
@@ -243,6 +245,7 @@ export default function AppRoutes() {
       trigger: WorkSection,
       start: "top bottom",
       end: "bottom 20%",
+      invalidateOnRefresh: true,
       onLeave: () => changeThemeTo("light"),
       onEnterBack: () => changeThemeTo("dark"),
     });
@@ -257,6 +260,7 @@ export default function AppRoutes() {
         end: "bottom 10%",
         scrub: true,
         onLeave: () => gsap.to(infoPercent, { x: "101%" }),
+        invalidateOnRefresh: true,
       },
     });
 
@@ -268,6 +272,7 @@ export default function AppRoutes() {
         start: "top 5%",
         end: "bottom 5%",
         scrub: true,
+        invalidateOnRefresh: true,
         onLeave: () => gsap.to(skillsPercent, { x: "101%" }),
       },
     });
@@ -280,6 +285,7 @@ export default function AppRoutes() {
         start: "top 5%",
         end: "bottom 50%",
         scrub: true,
+        invalidateOnRefresh: true,
         onLeave: () => {
           gsap.to(workPercent, { x: "101%" });
           percents.forEach((el) => gsap.set(el, { backgroundColor: "#CFC4FE" }));
@@ -298,9 +304,11 @@ export default function AppRoutes() {
         start: "top 50%",
         end: "bottom 90%",
         scrub: true,
+        invalidateOnRefresh: true,
         onLeave: () => gsap.to(contactPercent, { x: "101%" }),
       },
     });
+    ScrollTrigger.refresh(); 
   }, { scope: pageRef });
 
   return (

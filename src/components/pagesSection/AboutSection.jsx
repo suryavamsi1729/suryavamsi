@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { SplitText } from "gsap/all";
+import { ScrollTrigger, SplitText } from "gsap/all";
 
 const AboutSection = () => {
     const skillRef = useRef([]);
@@ -24,98 +24,43 @@ const AboutSection = () => {
             "description": "I have an eye for detail when translating designs into production-ready UIs. By combining Figma-to-code precision with animations and interactivity, I craft engaging digital experiences that balance creativity and functionality."
         }
     ]
-    // useGSAP(()=>{
-    //     const skillElements = skillRef.current;
-    //     document.fonts.ready.then(() => {
-    //         skillElements.forEach((ref) => {
-    //             if (!ref) return;
-    //             const title = new SplitText(ref.querySelector(".skill-title"),{
-    //                 type: "chars"
-    //             });
-    //             const descriptionLines = new SplitText(ref.querySelector(".skill-description"),{
-    //                 type: "lines"
-    //             });
-                
-    //             gsap.set(ref.querySelector(".id-skill"),{
-    //                 y:"100%",
-    //                 opacity:0,
-    //             })
-    //             gsap.set(title.chars,{
-    //                 y:0,
-    //                 opacity:0,
-    //             });
-    
-
-    //             gsap.to(ref.querySelector(".id-skill"),{
-    //                 y:0,
-    //                 opacity:1,
-    //                 duration:0.3,
-    //                 scrollTrigger:{
-    //                     trigger: ref,
-    //                     start: "top 80%",
-    //                     toggleActions: "restart none restart none"
-    //                 }
-    //             });
-    //             gsap.to(title.chars,{
-    //                 y:0,
-    //                 duration:0.3,
-    //                 opacity:1,
-    //                 stagger:0.04,
-    //                 scrollTrigger:{
-    //                     trigger: ref,
-    //                     start: "top 80%",
-    //                     toggleActions: "restart none restart none"
-    //                 }
-    //             });
-    //             gsap.from(descriptionLines.lines,{
-    //                 y:"100%",
-    //                 duration:0.5,
-    //                 opacity:0,
-    //                 stagger:0.2,
-    //                 scrollTrigger:{
-    //                     trigger: ref,
-    //                     start: "top 80%",
-    //                     toggleActions: "restart none restart none"
-    //                 }
-    //             }); 
-    //         });
-    //     });
-    // },{scope:scopeRef})
     useGSAP(() => {
-  const skillElements = skillRef.current;
+        const skillElements = skillRef.current;
 
-  document.fonts.ready.then(() => {
-    skillElements.forEach((ref) => {
-      if (!ref) return;
+        document.fonts.ready.then(() => {
+            skillElements.forEach((ref) => {
+            if (!ref) return;
 
-      const skillItem = ref.querySelector(".id-skill");
-      const title = new SplitText(ref.querySelector(".skill-title"), { type: "chars" });
-      const descriptionLines = new SplitText(ref.querySelector(".skill-description"), { type: "lines" });
+            const skillItem = ref.querySelector(".id-skill");
+            const title = new SplitText(ref.querySelector(".skill-title"), { type: "chars" });
+            const descriptionLines = new SplitText(ref.querySelector(".skill-description"), { type: "lines" });
 
-      const resetState = () => {
-        gsap.set(skillItem, { y: "100%", opacity: 0 });
-        gsap.set(title.chars, { y: 0, opacity: 0 });
-        gsap.set(descriptionLines.lines, { y: "100%", opacity: 0 });
-      };
+            const resetState = () => {
+                gsap.set(skillItem, { y: "100%", opacity: 0 });
+                gsap.set(title.chars, { y: 0, opacity: 0 });
+                gsap.set(descriptionLines.lines, { y: "100%", opacity: 0 });
+            };
 
-      // Initial set
-      resetState();
+            // Initial set
+            resetState();
 
-      // Create a single timeline for this skill element
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ref,
-          start: "top bottom",
-          toggleActions: "restart none none none",
-          onLeaveBack: () => resetState(), // reset when scrolling back past the section
-        },
-      });
+            // Create a single timeline for this skill element
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                trigger: ref,
+                start: "top bottom",
+                toggleActions: "restart none none none",
+                invalidateOnRefresh: true,
+                onLeaveBack: () => resetState(), // reset when scrolling back past the section
+                },
+            });
 
-      tl.to(skillItem, { y: 0, opacity: 1, duration: 0.3 })
-        .to(title.chars, { y: 0, opacity: 1, duration: 0.3, stagger: 0.04 }, "<")
-        .to(descriptionLines.lines, { y: 0, opacity: 1, duration: 0.5, stagger: 0.2 }, "<0.1");
-    });
-  });
+            tl.to(skillItem, { y: 0, opacity: 1, duration: 0.3 })
+                .to(title.chars, { y: 0, opacity: 1, duration: 0.3, stagger: 0.04 }, "<")
+                .to(descriptionLines.lines, { y: 0, opacity: 1, duration: 0.5, stagger: 0.2 }, "<0.1");
+            });
+        });
+    ScrollTrigger.refresh();
 }, { scope: scopeRef });
 
     return (
