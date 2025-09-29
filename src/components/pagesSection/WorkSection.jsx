@@ -53,7 +53,7 @@ const WorkSection = () => {
           scrub: true,
           invalidateOnRefresh: true,
           refreshPriority:1,
-          markers: true, // uncomment for debugging
+          // markers: true, // uncomment for debugging
         },
         defaults: { ease: "none" },
       });
