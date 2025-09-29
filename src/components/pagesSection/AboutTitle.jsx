@@ -39,13 +39,16 @@ export default function AboutTitle() {
         },
       }
     );
-    gsap.to(".about-text",{
+    gsap.fromTo(".about-text",
+      {
+        opacity:0,
+        scale:0.8,
+      },{
       opacity:1,
       scale:1,
-      ease: "none",
         scrollTrigger: {
             trigger: section,
-            start: "bottom 80%",
+            start: "bottom 70%",
             end: "bottom top",
             scrub: true,
         }
@@ -54,9 +57,9 @@ export default function AboutTitle() {
   }, {scope:sectionRef});
 
   return (
-    <section ref={sectionRef} className="w-full bg-[#191B20] px-6 md:px-12 lg:px-20 pointer-events-none absolute inset-0 z-20">
+    <section ref={sectionRef} className="w-full bg-[#191B20] px-6 md:px-12 lg:px-20 pointer-events-none absolute inset-0 z-20 ">
       <div className="track-wrapper h-svh flex flex-col justify-center items-center">
-        <h1 id="aboutText" className="about-text font-respira font-bold text-8xl md:text-[120px] lg:text-[320px] tracking-tight text-brand">About</h1>
+        <h1 id="aboutText" className="about-text font-respira font-bold text-8xl md:text-[120px] lg:text-[320px] tracking-tight text-brand opacity-0 scale-90">About</h1>
       </div>
     </section>
   );

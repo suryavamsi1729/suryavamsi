@@ -121,7 +121,7 @@ const AboutSection = () => {
     return (
         <section ref={scopeRef} id="About-myself" className='relative w-full min-h-screen mt-[100vh]'>
             <div id="images section" className="w-full h-auto flex flex-row justify-center items-center gap-16">
-                <img src="/images/suryavamsi.jpeg" alt="SuryaVamsiImage" className="w-[156px] h-[195px] md:w-[254px] md:h-[316px] lg:w-[344px] lg:h-[430px] object-bottom object-cover z-[1000]"/>
+                <img src="/images/suryavamsi.jpeg" alt="SuryaVamsiImage" className="w-[156px] h-[195px] md:w-[254px] md:h-[316px] lg:w-[344px] lg:h-[430px] object-bottom object-cover z-[1000] rounded"/>
             </div>
             <div  id="info-Skills-section" className=" w-full h-auto flex flex-col justify-start items-center gap-6 md:gap-8 lg:gap-12 px-4 md:px-8 py-24 md:py-52">
                 {

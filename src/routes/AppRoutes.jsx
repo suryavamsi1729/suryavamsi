@@ -16,6 +16,7 @@ export default function AppRoutes() {
     const navSection = context.selector("#nav-section");
     const skillInfoSection = context.selector("#info-Skills-section");
     const AboutSection = context.selector("#About-myself");
+    const WorkSection = context.selector("#Work-Section");
     const infoPercent = context.selector("#section-Scrolle-percent")[0];
     const workPercent = context.selector("#section-Scrolle-percent")[1];
     const archivePercent = context.selector("#section-Scrolle-percent")[2];
@@ -23,7 +24,7 @@ export default function AppRoutes() {
     ScrollTrigger.create({
       trigger: skillInfoSection,
       start: "top bottom",
-      end: "bottom 10%",
+      end: "bottom 20%",
       onEnter: () => {
         gsap.set(navSection, {
           background: "linear-gradient(to bottom, #191b20 0%, #191b20 60%, #f3f4ef00 100%)",
@@ -36,11 +37,10 @@ export default function AppRoutes() {
         });
       },
       onLeave: () => {
-        changeThemeTo("light");
+        changeThemeTo("dark");
         gsap.set(navSection, {
           background: "transparent"
         });
-
       },
       onLeaveBack: () => {
         gsap.set(navSection, {
@@ -68,9 +68,28 @@ export default function AppRoutes() {
         start: "top top",
         end: "bottom 10%",
         scrub:true,
+        onLeave: ()=>{
+          gsap.to(infoPercent,{
+            x:"101%"
+          })
+        }
       }
     });
-  
+    gsap.to(workPercent,{
+      x: "0%",
+      ease: "none",
+      scrollTrigger:{
+        trigger: WorkSection,
+        start: "top 5%",
+        end: "bottom bottom",
+        scrub:true,
+        onLeave: ()=>{
+          gsap.to(infoPercent,{
+            x:"101%"
+          })
+        }
+      }
+    });
   },{scope:pageRef});
   return (
     <div ref={pageRef} className="overflow-clip">

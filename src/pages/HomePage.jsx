@@ -7,6 +7,7 @@ import SplineModel from '../components/animations/SplineModel';
 import AboutTitle from '../components/pagesSection/AboutTitle';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import WorkSection from '../components/pagesSection/WorkSection';
 
 const HomePage = () => {
     const loadingPageRef = useRef(null);
@@ -45,9 +46,7 @@ const HomePage = () => {
                     </div> 
                     <AboutSection/>
                 </div>
-                <div className='h-screen w-full'>
-
-                </div>
+                <WorkSection/>
             </div>   
         </>
         

@@ -336,7 +336,7 @@ const AppHeader = () => {
           </button>
         </div>
         <div className="hidden md:col-span-2 md:flex flex-col gap-1 z-50">
-          {["INFO", "WORK", "ARCHIVE", "CONTACT"].map((item, i) => (
+          {["INFO", "WORK", "SKILLS", "CONTACT"].map((item, i) => (
             <a key={i} href={`#${item.toLowerCase()}`} className="relative w-fit font-mono rounded-md flex flex-row gap-1 px-2 py-2 overflow-clip">
               <div className="relative z-40 text-[9px]">{String(i + 1).padStart(2, "0")}</div>
               <div

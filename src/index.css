@@ -48,3 +48,7 @@ body {
     background: #CFC4FE;
     color: #191B20;
 }
+
+.clip{
+    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+}
