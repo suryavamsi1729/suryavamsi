@@ -7,19 +7,19 @@ import gsap from 'gsap';
 const HeroSection = ({loadingPageRef}) => {
     const projects = [
         {
-            imageurl:"/images/drink4.png",
+            imageurl:"/images/optimized/drink4.avif",
             title: "MOJITO"
         },
         {
-            imageurl:"/images/photo.jpg",
+            imageurl:"/images/optimized/photo.avif",
             title: "PHOTOGRAM",
         },
         {
-            imageurl:"/images/cygnus1.png",
+            imageurl:"/images/optimized/cygnus1.avif",
             title: "CYGNUS",
         },
         {
-            imageurl: "/images/scorify.webp",
+            imageurl: "/images/optimized/scorify.avif",
             title:"SCORIFY"
         },
     ]

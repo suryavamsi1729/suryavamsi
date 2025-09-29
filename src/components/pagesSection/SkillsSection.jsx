@@ -16,34 +16,34 @@ const SkillsSection = () => {
             "title": "Frontend",
             "skills": [
             { "name": "React.js", "image": "https://img.icons8.com/color/96/react-native.png" },
-            { "name": "Next.js", "image": "https://suryavamsi.vercel.app/images/next.webp" },
+            { "name": "Next.js", "image": "https://suryavamsi.vercel.app/images/optimized/next.avif" },
             { "name": "Angular", "image": "https://img.icons8.com/color/96/angularjs.png" },
             { "name": "HTML5", "image": "https://img.icons8.com/color/96/html-5.png" },
             { "name": "CSS3", "image": "https://img.icons8.com/color/96/css3.png" },
             { "name": "Tailwind CSS", "image": "https://img.icons8.com/color/96/tailwindcss.png" },
             { "name": "Bootstrap", "image": "https://img.icons8.com/?size=96&id=EzPCiQUqWWEa&format=png&color=000000" },
-            { "name": "Redux", "image": "https://suryavamsi.vercel.app/images/redux.png" },
+            { "name": "Redux", "image": "https://suryavamsi.vercel.app/images/optimized/redux.avif" },
             ]
         },
         {
             "title": "Backend",
             "skills": [
             { "name": "Node.js", "image": "https://img.icons8.com/?size=96&id=hsPbhkOH4FMe&format=png&color=000000" },
-            { "name": "Express.js", "image": "https://suryavamsi.vercel.app/images/express.png" }
+            { "name": "Express.js", "image": "https://suryavamsi.vercel.app/images/optimized/express.avif" }
             ]
         },
         {
             "title": "Databases",
             "skills": [
             { "name": "MongoDB", "image": "https://img.icons8.com/?size=96&id=bosfpvRzNOG8&format=png&color=000000" },
-            { "name": "MySQL", "image": "https://suryavamsi.vercel.app/images/mysql.png" }
+            { "name": "MySQL", "image": "https://suryavamsi.vercel.app/images/optimized/mysql.avif" }
             ]
         },
         {
             "title": "Animations",
             "skills": [
-            { "name": "GSAP", "image": "https://suryavamsi.vercel.app/images/gsap.png" },
-            { "name": "Framer Motion", "image": "https://suryavamsi.vercel.app/images/framer-motion.webp" },
+            { "name": "GSAP", "image": "https://suryavamsi.vercel.app/images/optimized/gsap.avif" },
+            { "name": "Framer Motion", "image": "https://suryavamsi.vercel.app/images/optimized/framer-motion.avif" },
             { "name": "Anime.js", "image": "https://cdn.bsky.app/img/avatar/plain/did:plc:itelljk76ga66jzza5rxky6b/bafkreidettspfjrooyhiihe6xzomgse7hz3csvyxxrob4srnrzla255b64@jpeg" }
             ]
         },
@@ -51,20 +51,20 @@ const SkillsSection = () => {
             "title": "Tools",
             "skills": [
             { "name": "Git", "image": "https://img.icons8.com/color/96/git.png" },
-            { "name": "Postman", "image": "https://suryavamsi.vercel.app/images/postman-icon.webp" }
+            { "name": "Postman", "image": "https://suryavamsi.vercel.app/images/optimized/postman-icon.avif" }
             ]
         },
         {
             "title": "AWS",
             "skills": [
-            { "name": "AWS S3", "image": "https://suryavamsi.vercel.app/images/s3.png" },
-            { "name": "AWS CloudFront", "image": "https://suryavamsi.vercel.app/images/CloudFront.png" },
-            { "name": "AWS EC2", "image": "https://suryavamsi.vercel.app/images/EC2.png" },
-            { "name": "Lambda", "image": "https://suryavamsi.vercel.app/images/Lambda.png" },
-            { "name": "Auto Scaling", "image": "https://suryavamsi.vercel.app/images/autoscaling.png" },
-            { "name": "VPC", "image": "https://suryavamsi.vercel.app/images/vpc.png" },
-            { "name": "IAM", "image": "https://suryavamsi.vercel.app/images/iam.png" },
-            { "name": "DynamoDB", "image": "https://suryavamsi.vercel.app/images/DynamoDB.png" }
+            { "name": "AWS S3", "image": "https://suryavamsi.vercel.app/images/optimized/s3.avif" },
+            { "name": "AWS CloudFront", "image": "https://suryavamsi.vercel.app/images/optimized/CloudFront.avif" },
+            { "name": "AWS EC2", "image": "https://suryavamsi.vercel.app/images/optimized/EC2.avif" },
+            { "name": "Lambda", "image": "https://suryavamsi.vercel.app/images/optimized/Lambda.avif" },
+            { "name": "Auto Scaling", "image": "https://suryavamsi.vercel.app/images/optimized/autoscaling.avif" },
+            { "name": "VPC", "image": "https://suryavamsi.vercel.app/images/optimized/vpc.avif" },
+            { "name": "IAM", "image": "https://suryavamsi.vercel.app/images/optimized/iam.avif" },
+            { "name": "DynamoDB", "image": "https://suryavamsi.vercel.app/images/optimized/DynamoDB.avif" }
             ]
         },
         {

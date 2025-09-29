@@ -15,25 +15,25 @@ const WorkSection = () => {
 
   const projects = [
     {
-      imageurl: "/images/drink4.png",
+      imageurl: "/images/optimized/drink4.avif",
       title: "MOJITO",
       link: "https://mojito-cocktailes.vercel.app/",
       keywords: ["Creative Animations", "Seamless Transitions", "Animation-Rich UI"],
     },
     {
-      imageurl: "/images/photo.jpg",
+      imageurl: "/images/optimized/photo.avif",
       title: "PHOTOGRAM",
       link: "https://photogram-with-firebase.vercel.app/",
       keywords: ["Smart Photo Sharing", "Shadcn UI + Uploadcare", "Firebase-Powered"],
     },
     {
-      imageurl: "/images/cygnus1.png",
+      imageurl: "/images/optimized/cygnus1.avif",
       title: "CYGNUS",
       link: "https://cygnus-frontend-sigma.vercel.app/",
       keywords: ["Creative Frontend", "Festival-Themed Web", "Animation"],
     },
     {
-      imageurl: "/images/scorify.webp",
+      imageurl: "/images/optimized/scorify.avif",
       title: "SCORIFY",
       link: "https://landlord-scorify.vercel.app/",
       keywords: ["Pixel-Perfect UI", "Responsive Design", "User-Centric Platform"],
