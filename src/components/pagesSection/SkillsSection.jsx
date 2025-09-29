@@ -16,7 +16,7 @@ const SkillsSection = () => {
             "title": "Frontend",
             "skills": [
             { "name": "React.js", "image": "https://img.icons8.com/color/96/react-native.png" },
-            { "name": "Next.js", "image": "https://portfolio-ecru-sigma-69.vercel.app//images/next.webp" },
+            { "name": "Next.js", "image": "https://suryavamsi.vercel.app/images/next.webp" },
             { "name": "Angular", "image": "https://img.icons8.com/color/96/angularjs.png" },
             { "name": "HTML5", "image": "https://img.icons8.com/color/96/html-5.png" },
             { "name": "CSS3", "image": "https://img.icons8.com/color/96/css3.png" },
