@@ -18,16 +18,16 @@ const HomePage = () => {
     const parentRef = useRef(null);
     useGSAP(()=>{
         const aboutText = parentRef.current.querySelectorAll("#aboutText")[0];
-        const AboutSection = parentRef.current.querySelectorAll("#About-myself")[0];
-        const infoSkillsSection = parentRef.current.querySelectorAll("#info-Skills-section")[0];
-        const infoPercent = parentRef.current.querySelectorAll("#section-Scrolle-percent")[0];
-        console.log(infoPercent);
-        gsap.set(aboutText,{
-            opacity:1,
-        }); 
+        // const AboutSection = parentRef.current.querySelectorAll("#About-myself")[0];
+        const infoSkillsSection = parentRef.current.querySelectorAll("#info-Skills-section")[0]; 
         
         gsap.to(aboutText,{
+            opacity:1,
+            scale:1,
+
+        },{
             opacity:0.1,
+            scale:1,
             ease: "power1.out",
             scrollTrigger:{
                 trigger: infoSkillsSection,
