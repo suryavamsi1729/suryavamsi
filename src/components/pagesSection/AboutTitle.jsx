@@ -53,7 +53,9 @@ export default function AboutTitle({title}) {
         });
       }
     });
-    ScrollTrigger.refresh();
+    window.addEventListener("load", () => {
+        ScrollTrigger.refresh();
+    });
   }, {scope:sectionRef});
 
   return (

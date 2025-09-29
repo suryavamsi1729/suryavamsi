@@ -38,7 +38,9 @@ const ContactSection = () => {
                 duration:0.6,
             });
         });
+        window.addEventListener("load", () => {
         ScrollTrigger.refresh();
+    });
     },{scope:scoperef});
 
   return (

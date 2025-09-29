@@ -67,7 +67,9 @@ const HeroSection = ({loadingPageRef}) => {
                 stagger:0.05,
             },"<");
         });
-        ScrollTrigger.refresh();
+        window.addEventListener("load", () => {
+            ScrollTrigger.refresh();
+        });
     },{ scope: infoRef });
     const handelMouseEnter = (e)=>{
         const parent = e.currentTarget.parentElement;

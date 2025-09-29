@@ -127,7 +127,9 @@ const SkillsSection = () => {
             }, "<")
             });
         });
-        ScrollTrigger.refresh(); 
+        window.addEventListener("load", () => {
+            ScrollTrigger.refresh();
+        });
     },{scope:scopeRef})
     return (
         <section ref={scopeRef} id="Skills-section" className='relative w-full flex flex-col justify-start items-start  bg-black '>

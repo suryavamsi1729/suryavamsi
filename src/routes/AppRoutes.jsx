@@ -308,7 +308,9 @@ export default function AppRoutes() {
         onLeave: () => gsap.to(contactPercent, { x: "101%" }),
       },
     });
-    ScrollTrigger.refresh(); 
+    window.addEventListener("load", () => {
+            ScrollTrigger.refresh();
+    }); 
   }, { scope: pageRef });
 
   return (

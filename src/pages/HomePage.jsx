@@ -36,7 +36,9 @@ const HomePage = () => {
                 invalidateOnRefresh: true,
             }
         });
-        ScrollTrigger.refresh();
+        window.addEventListener("load", () => {
+            ScrollTrigger.refresh();
+        });
     },{scope:parentRef});
     return (
         <>

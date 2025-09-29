@@ -224,7 +224,7 @@
 
 import { useRef } from "react";
 import gsap from "gsap";
-import { SplitText } from "gsap/all";
+import { ScrollTrigger, SplitText } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import Time from "@common/Time";
 import DateComp from "@common/DateComp";
@@ -301,6 +301,9 @@ const AppHeader = () => {
         nameRef.current.addEventListener("mouseenter", () => nameTL.play());
         nameRef.current.addEventListener("mouseleave", () => nameTL.reverse());
       }
+    });
+    window.addEventListener("load", () => {
+        ScrollTrigger.refresh();
     });
   }, { scope: headerRef });
 

@@ -60,7 +60,9 @@ const AboutSection = () => {
                 .to(descriptionLines.lines, { y: 0, opacity: 1, duration: 0.5, stagger: 0.2 }, "<0.1");
             });
         });
-    ScrollTrigger.refresh();
+    window.addEventListener("load", () => {
+        ScrollTrigger.refresh();
+    });
 }, { scope: scopeRef });
 
     return (
