@@ -16,34 +16,34 @@ const SkillsSection = () => {
             "title": "Frontend",
             "skills": [
             { "name": "React.js", "image": "https://img.icons8.com/color/96/react-native.png" },
-            { "name": "Next.js", "image": "http://localhost:5173/images/next.webp" },
+            { "name": "Next.js", "image": "https://portfolio-ecru-sigma-69.vercel.app//images/next.webp" },
             { "name": "Angular", "image": "https://img.icons8.com/color/96/angularjs.png" },
             { "name": "HTML5", "image": "https://img.icons8.com/color/96/html-5.png" },
             { "name": "CSS3", "image": "https://img.icons8.com/color/96/css3.png" },
             { "name": "Tailwind CSS", "image": "https://img.icons8.com/color/96/tailwindcss.png" },
             { "name": "Bootstrap", "image": "https://img.icons8.com/?size=96&id=EzPCiQUqWWEa&format=png&color=000000" },
-            { "name": "Redux", "image": "http://localhost:5173/images/redux.png" },
+            { "name": "Redux", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/redux.png" },
             ]
         },
         {
             "title": "Backend",
             "skills": [
             { "name": "Node.js", "image": "https://img.icons8.com/?size=96&id=hsPbhkOH4FMe&format=png&color=000000" },
-            { "name": "Express.js", "image": "http://localhost:5173/images/express.png" }
+            { "name": "Express.js", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/express.png" }
             ]
         },
         {
             "title": "Databases",
             "skills": [
             { "name": "MongoDB", "image": "https://img.icons8.com/?size=96&id=bosfpvRzNOG8&format=png&color=000000" },
-            { "name": "MySQL", "image": "http://localhost:5173/images/mysql.png" }
+            { "name": "MySQL", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/mysql.png" }
             ]
         },
         {
             "title": "Animations",
             "skills": [
-            { "name": "GSAP", "image": "http://localhost:5173/images/gsap.png" },
-            { "name": "Framer Motion", "image": "http://localhost:5173/images/framer-motion.webp" },
+            { "name": "GSAP", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/gsap.png" },
+            { "name": "Framer Motion", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/framer-motion.webp" },
             { "name": "Anime.js", "image": "https://cdn.bsky.app/img/avatar/plain/did:plc:itelljk76ga66jzza5rxky6b/bafkreidettspfjrooyhiihe6xzomgse7hz3csvyxxrob4srnrzla255b64@jpeg" }
             ]
         },
@@ -51,20 +51,20 @@ const SkillsSection = () => {
             "title": "Tools",
             "skills": [
             { "name": "Git", "image": "https://img.icons8.com/color/96/git.png" },
-            { "name": "Postman", "image": "http://localhost:5173/images/postman-icon.webp" }
+            { "name": "Postman", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/postman-icon.webp" }
             ]
         },
         {
             "title": "AWS",
             "skills": [
-            { "name": "AWS S3", "image": "http://localhost:5173/images/s3.png" },
-            { "name": "AWS CloudFront", "image": "http://localhost:5173/images/CloudFront.png" },
-            { "name": "AWS EC2", "image": "http://localhost:5173/images/EC2.png" },
-            { "name": "Lambda", "image": "http://localhost:5173/images/Lambda.png" },
-            { "name": "Auto Scaling", "image": "http://localhost:5173/images/autoscaling.png" },
-            { "name": "VPC", "image": "http://localhost:5173/images/vpc.png" },
-            { "name": "IAM", "image": "http://localhost:5173/images/iam.png" },
-            { "name": "DynamoDB", "image": "http://localhost:5173/images/DynamoDB.png" }
+            { "name": "AWS S3", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/s3.png" },
+            { "name": "AWS CloudFront", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/CloudFront.png" },
+            { "name": "AWS EC2", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/EC2.png" },
+            { "name": "Lambda", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/Lambda.png" },
+            { "name": "Auto Scaling", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/autoscaling.png" },
+            { "name": "VPC", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/vpc.png" },
+            { "name": "IAM", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/iam.png" },
+            { "name": "DynamoDB", "image": "https://portfolio-ecru-sigma-69.vercel.app/images/DynamoDB.png" }
             ]
         },
         {
