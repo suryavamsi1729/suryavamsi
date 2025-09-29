@@ -21,13 +21,10 @@ const HomePage = () => {
         const aboutText = parentRef.current.querySelectorAll("#aboutText")[0];
         const infoSkillsSection = parentRef.current.querySelectorAll("#info-Skills-section")[0]; 
         gsap.set(aboutText,{
-            opacity:0,
-            scale:0.8,
-        })
-        gsap.fromTo(aboutText,{
             opacity:1,
-            scale:1
-        },{
+            scale:1,
+        });
+        gsap.to(aboutText,{
             opacity:0.1,
             scale:1,
             ease: "power1.out",

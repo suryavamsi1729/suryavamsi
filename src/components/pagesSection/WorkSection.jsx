@@ -247,7 +247,9 @@ const WorkSection = () => {
         });
       }
     });
-    ScrollTrigger.refresh(); 
+    window.addEventListener("load", () => {
+        ScrollTrigger.refresh();
+    });
   }, { scope: scopeRef });
 
   return (

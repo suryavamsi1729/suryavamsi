@@ -15,10 +15,6 @@ export default function AboutTitle({title}) {
     gsap.set(section,{
       clipPath: "inset(50% 0%)",
     });
-    gsap.set(".about-text",{
-      opacity:0,
-      scale:0.8,
-    });
     gsap.to(
       section,
       {
@@ -40,11 +36,7 @@ export default function AboutTitle({title}) {
         },
       }
     );
-    gsap.fromTo(".about-text",
-      {
-        opacity:0,
-        scale:0.8,
-      },{
+    gsap.to(".about-text",{
       opacity:1,
       scale:1,
         scrollTrigger: {
@@ -53,7 +45,13 @@ export default function AboutTitle({title}) {
             end: "bottom top",
             scrub: true,
             invalidateOnRefresh: true,
-        }
+        },
+      onComplete:()=>{
+        gsap.set(".about-text",{
+          opacity:1,
+          scale:1,
+        });
+      }
     });
     ScrollTrigger.refresh();
   }, {scope:sectionRef});

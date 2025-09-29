@@ -49,6 +49,6 @@ body {
     color: #191B20;
 }
 
-.clip{
-    clip-path: polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%);
+img {
+  will-change: transform, clip-path;
 }
