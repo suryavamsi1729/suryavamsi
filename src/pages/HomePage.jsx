@@ -9,7 +9,6 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import WorkSection from '../components/pagesSection/WorkSection';
 import SkillsSection from '../components/pagesSection/SkillsSection';
-import { Contact } from 'lucide-react';
 import ContactSection from '../components/pagesSection/ContactSection';
 import { ScrollTrigger } from 'gsap/all';
 

@@ -148,7 +148,7 @@ const SkillsSection = () => {
                                 {
                                     skill.skills.map((item, ind) => (
                                         <div key={ind} className="skill-item w-auto h-auto flex flex-row justify-start items-center gap-4 p-2">
-                                            <img loading="lazy" src={item.image} alt={item.name} className="w-10 h-10 aspect-square object-contain"/>
+                                            <img  src={item.image} alt={item.name} className="w-10 h-10 aspect-square object-contain"/>
                                             <p className="text-md md:text-base lg:text-lg text-white font-mono">{item.name}</p>
                                         </div>
                                     ))

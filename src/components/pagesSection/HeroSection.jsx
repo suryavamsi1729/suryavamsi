@@ -146,11 +146,11 @@ const HeroSection = ({loadingPageRef}) => {
                                 <div onMouseEnter={handelMouseEnter}  onMouseLeave={handleMouseLeave} className=' group z-10 flex flex-col h-full justify-start items-start gap-2'>
                                     <p className={`project-count-text text-[10px] ${theme=="light"?"text-black":"text-white/40"} transition-colors duration-300 ease-in-out  group-hover:text-white`}>[{String(ind + 1).padStart(2, "0")}]</p>
                                     <div className='bottom-img'>
-                                        <img alt="img" loading="lazy" src={`${project.imageurl}`} className={`w-full aspect-4/5 object-cover text-[#191B20] `}/>
+                                        <img alt="img"  src={`${project.imageurl}`} className={`w-full aspect-4/5 object-cover text-[#191B20] `}/>
                                     </div>
                                 </div>
                                 <div className='img-slider absolute inset-0 w-full h-full overflow-hidden'>
-                                    <img alt="img" loading="lazy" className=" w-full h-full object-cover" src={`${project.imageurl}`}/>
+                                    <img alt="img"  className=" w-full h-full object-cover" src={`${project.imageurl}`}/>
                                     <div className='grid grid-cols-1  md:grid-cols-12 absolute inset-[50%_0%_auto] px-4 overflow-hidden'>
                                         <a className={`project-title line-clamp-1 font-editorial-thin text-3xl col-span-1 md:col-start-7 md:cols-span-6 lg:col-start-9 lg:col-span-4 ${theme=="light"?"text-black":"text-white"}`}>
                                             {project.title}

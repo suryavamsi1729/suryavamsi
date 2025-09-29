@@ -22,6 +22,7 @@ const ContactSection = () => {
     useGSAP(()=>{
         
         document.fonts.ready.then(() => {
+            
             const tl = gsap.timeline({
             scrollTrigger: {
                 trigger:scoperef.current,
