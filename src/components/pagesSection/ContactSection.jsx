@@ -35,8 +35,8 @@ const ContactSection = () => {
                 });
 
                 const connectTL = gsap.timeline({ paused: true });
-                connectTL.to(upText.chars, { y: "-100%", duration: 0.26, stagger: 0.06 }, 0);
-                connectTL.to(downText.chars, { y: "-100%", duration: 0.26, stagger: 0.06 }, 0);
+                connectTL.to(upText.chars, { y: "-100%", duration: 0.26, stagger: 0.04 }, 0);
+                connectTL.to(downText.chars, { y: "-100%", duration: 0.26, stagger: 0.04 }, 0);
 
                 target.addEventListener("mouseenter", () => connectTL.play());
                 target.addEventListener("mouseleave", () => connectTL.reverse());
