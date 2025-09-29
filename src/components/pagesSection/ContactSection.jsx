@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import { ScrollTrigger, SplitText } from 'gsap/all';
 const ContactSection = () => {
     const scoperef = useRef(null);
+    const connectRef = useRef([]);
     const connect = [
         {
             "title": "LinkedIn",
@@ -22,7 +23,23 @@ const ContactSection = () => {
     useGSAP(()=>{
         
         document.fonts.ready.then(() => {
-            
+            connectRef.current.forEach((target) => {
+                if (!target) return;
+
+                const upText = new SplitText(target.querySelector(".text-up"), {
+                type: "chars",
+                });
+                const downText = new SplitText(target.querySelector(".text-down"), {
+                type: "chars",
+                });
+
+                const connectTL = gsap.timeline({ paused: true });
+                connectTL.to(upText.chars, { y: "-100%", duration: 0.26, stagger: 0.06 }, 0);
+                connectTL.to(downText.chars, { y: "-100%", duration: 0.26, stagger: 0.06 }, 0);
+
+                target.addEventListener("mouseenter", () => connectTL.play());
+                target.addEventListener("mouseleave", () => connectTL.reverse());
+            });
             const tl = gsap.timeline({
             scrollTrigger: {
                 trigger:scoperef.current,
@@ -59,12 +76,27 @@ const ContactSection = () => {
                     connect.map((ele,index)=>(
                         <div key={index} className=' w-full h-auto flex flex-col justify-center items-center gap-2 pt-2'>
                             <div className='w-full h-[1px] bg-[#191b201a]'></div>
-                            <div className='w-full h-auto flex flex-row justify-start items-center gap-4 py-4 px-4'>
-                                <p className={`id-skill h-fit flex flex-row justify-start items-center text-[10px] text-black overflow-hidden `}>[ {String(index+1).padStart(2, "0")} ]</p>
-                                <a target='_blank' href={ele.link} className="skill-title h-fit font-mono flex flex-row justify-start items-center text-xs text-black  overflow-hidden uppercase">
-                                    {ele.title}
-                                </a>
+                            <div className="w-full h-auto flex flex-row justify-start items-center gap-4 py-4 px-4">
+                                <p className="id-skill w-auto h-fit flex flex-row justify-start items-center text-[10px] text-black">
+                                     {`[ ${String(index + 1).padStart(2, "0")} ]`}
+                                </p>
+
+                                {/* wrapper with ref */}
+                                <div ref={(ele)=>(connectRef.current[index]=ele)} className="w-auto h-auto relative overflow-hidden">
+                                    <a
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    href={ele.link}
+                                    className="skill-title h-fit font-mono flex flex-row justify-start items-center text-xs text-black relative overflow-hidden uppercase"
+                                    >
+                                    <div className="text-up text-xs uppercase">{ele.title}</div>
+                                    <div className="text-down text-xs uppercase absolute inset-[100%_auto_auto_0%]">
+                                        {ele.title}
+                                    </div>
+                                    </a>
+                                </div>
                             </div>
+
                         </div>
                     ))
                 }
