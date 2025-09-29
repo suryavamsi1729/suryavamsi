@@ -6,6 +6,7 @@ import { ScrollTrigger, SplitText } from 'gsap/all';
 const ContactSection = () => {
     const scoperef = useRef(null);
     const connectRef = useRef([]);
+    const emailRef = useRef(null);
     const connect = [
         {
             "title": "LinkedIn",
@@ -40,6 +41,14 @@ const ContactSection = () => {
                 target.addEventListener("mouseenter", () => connectTL.play());
                 target.addEventListener("mouseleave", () => connectTL.reverse());
             });
+            const emailTxtTL = gsap.timeline({paused:true});
+            const emailUpTxt = new SplitText(emailRef.current.querySelector(".text-up"), {type: "chars",});
+            const emailDownTxt = new SplitText(emailRef.current.querySelector(".text-down"), {type: "chars",});
+            emailTxtTL.to(emailUpTxt.chars, { y: "-100%", duration: 0.2, stagger: 0.01 }, 0);
+            emailTxtTL.to(emailDownTxt.chars, { y: "-100%", duration: 0.2, stagger: 0.01 }, 0);
+            emailRef.current.addEventListener("mouseenter", () => emailTxtTL.play());
+            emailRef.current.addEventListener("mouseleave", () => emailTxtTL.reverse());
+
             const tl = gsap.timeline({
             scrollTrigger: {
                 trigger:scoperef.current,
@@ -68,7 +77,10 @@ const ContactSection = () => {
                 <h2 className="text-[#191b2080] text-start md:text-3xl lg:text-4xl font-editorial-thin ">Let’s collaborate</h2>
                 <a href='mailto:suryavamsi2005doddi@gmail.com' className="w-full h-auto flex justify-start items-center font-editorial-thin text-black gap-2 ">
                     <CornerDownRight/>
-                    <span className='text-xl lg:text-3xl font-semibold'>suryavamsi2005doddi@gmail.com</span>
+                    <div ref={emailRef} className='w-auto h-auto relative overflow-hidden'>
+                        <div className="text-up text-xl lg:text-3xl font-semibold">suryavamsi2005doddi@gmail.com</div>
+                        <div className="text-down text-xl lg:text-3xl font-semibold absolute inset-[100%_auto_auto_0%]">suryavamsi2005doddi@gmail.com</div>
+                    </div>
                 </a>
             </div>
             <div className="col-start-1 col-span-6 md:col-start-7 md:col-span-6 lg:col-start-9 lg:col-span-4 pt-48 ">
