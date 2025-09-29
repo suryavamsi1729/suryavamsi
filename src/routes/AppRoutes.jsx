@@ -17,9 +17,11 @@ export default function AppRoutes() {
     const skillInfoSection = context.selector("#info-Skills-section");
     const AboutSection = context.selector("#About-myself");
     const WorkSection = context.selector("#Work-Section");
+    const skillsSection = context.selector("#Skills-section");
+    const contactSection = context.selector("#contact-section");
     const infoPercent = context.selector("#section-Scrolle-percent")[0];
-    const workPercent = context.selector("#section-Scrolle-percent")[1];
-    const archivePercent = context.selector("#section-Scrolle-percent")[2];
+    const workPercent = context.selector("#section-Scrolle-percent")[2];
+    const skillsPercent = context.selector("#section-Scrolle-percent")[1];
     const contactPercent = context.selector("#section-Scrolle-percent")[3];
     ScrollTrigger.create({
       trigger: skillInfoSection,
@@ -39,7 +41,7 @@ export default function AppRoutes() {
       onLeave: () => {
         changeThemeTo("dark");
         gsap.set(navSection, {
-          background: "transparent"
+          background: "linear-gradient(to bottom, #191b20 0%, #191b20 60%, #f3f4ef00 100%)"
         });
       },
       onLeaveBack: () => {
@@ -47,14 +49,41 @@ export default function AppRoutes() {
           background: "transparent"
         });
       },
-    })
+    });
+    ScrollTrigger.create({
+      trigger: skillsSection,
+      start: "top bottom",
+      end: "bottom 20%",
+      onLeave:()=>{
+        gsap.set(navSection, {
+          background: "transparent"
+        });
+      },
+      onEnterBack:()=>{
+        gsap.set(navSection, {
+          background: "linear-gradient(to bottom, #191b20 0%, #191b20 60%, #f3f4ef00 100%)",
+        });
+      }
+    });
+    ScrollTrigger.create({
+      trigger: WorkSection,
+      start: "top bottom",
+      end: "bottom 20%",
+      onLeave: () => {
+        changeThemeTo("light");
+      },
+      onEnterBack: () => {
+        changeThemeTo("dark");
+        
+      },
+    });
     gsap.set(infoPercent,{
         x: "-101%",
     });
     gsap.set(workPercent,{
         x: "-101%",
     });
-    gsap.set(archivePercent,{
+    gsap.set(skillsPercent,{
         x: "-101%",
     });
     gsap.set(contactPercent,{
@@ -75,16 +104,54 @@ export default function AppRoutes() {
         }
       }
     });
+    gsap.to(skillsPercent,{
+      x: "0%",
+      ease: "none",
+      scrollTrigger:{
+        trigger: skillsSection,
+        start: "top 5%",
+        end: "bottom 5%",
+        scrub:true,
+        onLeave: ()=>{
+          gsap.to(skillsPercent,{
+            x:"101%"
+          })
+        }
+      }
+    });
     gsap.to(workPercent,{
       x: "0%",
       ease: "none",
       scrollTrigger:{
         trigger: WorkSection,
         start: "top 5%",
-        end: "bottom bottom",
+        end: "bottom 50%",
         scrub:true,
         onLeave: ()=>{
-          gsap.to(infoPercent,{
+          gsap.to(workPercent,{
+            x:"101%"
+          });
+          context.selector("#section-Scrolle-percent").forEach(element => {
+            gsap.set(element,{ backgroundColor: "#CFC4FE" });
+          });
+        },
+        onEnterBack:()=>{
+          context.selector("#section-Scrolle-percent").forEach(element => {
+            gsap.set(element,{ backgroundColor: "#8348ff" });
+          });
+        }
+      }
+    });
+    gsap.to(contactPercent,{
+      x: "0%",
+      ease: "none",
+      scrollTrigger:{
+        trigger: contactSection,
+        start: "top 50%",
+        end: "bottom 90%",
+        scrub:true,
+        onLeave: ()=>{
+          gsap.to(contactPercent,{
             x:"101%"
           })
         }

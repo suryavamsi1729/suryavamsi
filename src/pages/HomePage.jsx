@@ -8,6 +8,9 @@ import AboutTitle from '../components/pagesSection/AboutTitle';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import WorkSection from '../components/pagesSection/WorkSection';
+import SkillsSection from '../components/pagesSection/SkillsSection';
+import { Contact } from 'lucide-react';
+import ContactSection from '../components/pagesSection/ContactSection';
 
 const HomePage = () => {
     const loadingPageRef = useRef(null);
@@ -42,11 +45,13 @@ const HomePage = () => {
                 <div className='sticky-trigger'>
                     <div className='sticky top-0'> 
                         <HeroSection loadingPageRef={loadingPageRef}/>
-                        <AboutTitle/>
+                        <AboutTitle title={"About"}/>
                     </div> 
                     <AboutSection/>
                 </div>
+                <SkillsSection/>
                 <WorkSection/>
+                <ContactSection/>
             </div>   
         </>
         

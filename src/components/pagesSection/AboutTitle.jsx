@@ -5,7 +5,7 @@ import { useGSAP } from "@gsap/react";
 import { useTheme } from '../../hooks/useTheme';
 
 
-export default function AboutTitle() {
+export default function AboutTitle({title}) {
   const sectionRef = useRef(null);
   const {changeThemeTo} = useTheme();
 
@@ -59,7 +59,7 @@ export default function AboutTitle() {
   return (
     <section ref={sectionRef} className="w-full bg-[#191B20] px-6 md:px-12 lg:px-20 pointer-events-none absolute inset-0 z-20 ">
       <div className="track-wrapper h-svh flex flex-col justify-center items-center">
-        <h1 id="aboutText" className="about-text font-respira font-bold text-8xl md:text-[120px] lg:text-[320px] tracking-tight text-brand opacity-0 scale-90">About</h1>
+        <h1 id="aboutText" className="about-text font-respira font-bold text-8xl md:text-[120px] lg:text-[320px] tracking-tight text-brand opacity-0 scale-90">{title}</h1>
       </div>
     </section>
   );

@@ -125,7 +125,7 @@ const WorkSection = () => {
                             <div ref={(ele)=>(scrollItemRef.current[index]=ele)} className={`scroll_item w-full h-full absolute top-0 left-0 right-0 bottom-0 px-4 py-11 md:px-5 md:py-12 lg:px-6 lg:py-14 `} key={index}>
                                 <div className="w-full h-full grid grid-cols-6 md:grid-cols-12 gap-4 md:gap-6 ">
                                     <div className="item-col-1 col-start-1 col-span-6 md:col-start-2 md:col-span-5 lg:col-start-3 lg:col-span-5 overflow-hidden place-self-center p-4">
-                                        <img src={project.imageurl} alt="Work Background"  className="max-w-[512px] aspect-square object-cover rounded-lg"/>
+                                        <img src={project.imageurl} alt="Work Background"  className="lg:max-w-[512px] aspect-square object-cover rounded-lg"/>
                                     </div>
                                     <div className="item-col-2 col-start-2 col-span-5 md:col-start-8 md:col-span-5 lg:col-start-9 lg:col-span-4 flex flex-col justify-end items-start gap-1 md:gap-2">
                                         <div className="w-full h-full  md:h-1/2 flex flex-col justify-between items-start">
