@@ -61,7 +61,6 @@ const WorkSection = () => {
                 start: "top top",
                 end: "bottom top",
                 scrub: true,
-                // markers: true,
                 },
                 defaults: { ease: "none" }
             }).fromTo(items[index],
@@ -76,12 +75,11 @@ const WorkSection = () => {
                 start: "top bottom",
                 end: "bottom bottom",
                 scrub: true,
-                // markers: true,
                 },
                 defaults: { ease: "none" }
             }).fromTo(items[index],
                 { clipPath:"polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)" },
-                { clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" } // ✅ fixed rectangle
+                { clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" } 
             );
             } 
             else {

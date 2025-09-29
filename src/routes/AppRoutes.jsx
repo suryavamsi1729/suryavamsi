@@ -53,7 +53,7 @@ export default function AppRoutes() {
     ScrollTrigger.create({
       trigger: skillsSection,
       start: "top bottom",
-      end: "bottom 20%",
+      end: "bottom 30%",
       onLeave:()=>{
         gsap.set(navSection, {
           background: "transparent"
