@@ -1,6 +1,4 @@
 import { useGSAP } from "@gsap/react";
-import AboutSection from "./AboutSection";
-import AboutTitle from "./AboutTitle";
 import { useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";

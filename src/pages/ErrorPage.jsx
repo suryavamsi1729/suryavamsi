@@ -16,14 +16,7 @@ export default function ErrorPage() {
     return ()=>toggleTheme();
   },[toggleTheme]);
    const handleNavigate = (path) => {
-      // setExit(true); // trigger exit animation
-      // console.log(loadingPageRef.current.exitTimeLine);
-      // // Wait for GSAP animation to complete before navigating
-      // loadingPageRef.current.exitTimeLine.eventCallback("onComplete", () => {
-      //   console.log("exit amimatipn complete");
-      //   navigate(path);
-      navigate(path)
-      // });
+      navigate(path);
   };
   return (
     <div className="relative w-screen min-h-screen flex flex-col items-center justify-centen text-center">
