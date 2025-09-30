@@ -182,6 +182,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import { useTheme } from "../hooks/useTheme";
+import AppFooter from "../components/footers/AppFooter";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -246,8 +247,14 @@ export default function AppRoutes() {
       start: "top bottom",
       end: "bottom 20%",
       invalidateOnRefresh: true,
-      onLeave: () => changeThemeTo("light"),
-      onEnterBack: () => changeThemeTo("dark"),
+      onLeave: () => {
+        changeThemeTo("light");
+        setNavBg("linear-gradient(to bottom, #F3F3F0 0%, #F3F3F0 60%, #f3f4ef00 100%)")
+      },
+      onEnterBack: () => {
+        changeThemeTo("dark");
+        setNavBg("transparent");
+      },
     });
 
     // Progress bars
@@ -323,6 +330,7 @@ export default function AppRoutes() {
             <Route path="*" element={<ErrorPage />} />
           </Routes>
         </main>
+        <AppFooter/>
       </Router>
     </div>
   );

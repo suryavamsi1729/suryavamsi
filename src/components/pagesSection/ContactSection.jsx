@@ -73,7 +73,7 @@ const ContactSection = () => {
   return (
     <section ref={scoperef} id="contact-section" className="relative w-full min-h-screen flex flex-col justify-start items-center px-8  bg-[#d2d2d27d]">
         <div className="w-full h-auto grid grid-cols-6 md:grid-cols-12 gap-4">
-            <div className="col-start-1 col-span-6  lg:col-span-4 flex flex-col justify-start items-start gap-1 pt-24 md:pt-48">
+            <div className="col-start-1 col-span-6  lg:col-span-4 flex flex-col justify-start items-start gap-1 pt-24 md:pt-64">
                 <h2 className="text-[#191b2080] text-start md:text-3xl lg:text-4xl font-editorial-thin ">Let’s collaborate</h2>
                 <a href='mailto:suryavamsi2005doddi@gmail.com' className="w-full h-auto flex justify-start items-center font-editorial-thin text-black gap-2 ">
                     <CornerDownRight/>
