@@ -1,9 +1,8 @@
-import { MdArrowBack } from "react-icons/md";
+import { MdArrowBack, MdArrowOutward } from "react-icons/md";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import { ScrollTrigger } from "gsap/all";
-import { Flip } from "gsap/all";
 
 const MojitoProject = () => {
   const scopeRef = useRef(null);
@@ -11,22 +10,33 @@ const MojitoProject = () => {
   const [isOpen, setIsOpen] = useState(true);
   const [closeX, setCloseX] = useState("24.5rem"); // default for small screens
   const scrollSizeRef = useRef("24.5rem");
+  const [media,setMedia] = useState("desktop");
 
-useEffect(() => {
-  const mm = gsap.matchMedia(scopeRef.current);
+  useEffect(() => {
+    const mm = gsap.matchMedia(scopeRef.current);
 
-  mm.add("(min-width: 1024px)", () => { 
-    setCloseX("24.5rem");
-    scrollSizeRef.current="24.5rem";
-  });
+    const updateHeight = () => {
+      const contentTarget = document.querySelector("#project-content");
+      if (!contentTarget) return;
+      const targetHeight = contentTarget.clientHeight;
+      setCloseX(window.innerWidth >= 1024 ? "25rem" : `${targetHeight}px`);
+      setMedia(window.innerWidth >= 1024 ? "desktop" : "mobile");
+      scrollSizeRef.current = window.innerWidth >= 1024 ? "25rem" : `${targetHeight}px`;
+    };
 
-  mm.add("(max-width: 1023px)", () => {
-    setCloseX("100%");
-    scrollSizeRef.current="100%";
-  });
+    window.addEventListener("load", updateHeight); // wait for all content to load
+    window.addEventListener("resize", updateHeight); // handle resize too
 
-  return () => mm.revert();
-}, []);
+    mm.add("(min-width: 1024px)", updateHeight);
+    mm.add("(max-width: 1023px)", updateHeight);
+
+    return () => {
+      mm.revert();
+      window.removeEventListener("load", updateHeight);
+      window.removeEventListener("resize", updateHeight);
+    };
+  }, []);
+
 
   useEffect(() => {
     const setWrapperHeight = () => {
@@ -34,11 +44,8 @@ useEffect(() => {
         const scrollTrack = scrollTrackRef.current;
         const trackHeight = scrollTrack.scrollHeight;
         gsap.set(".scroll_wraper", {
-          // height: `calc(${trackHeight}px + 100vh)`,
           height: trackHeight + window.innerHeight,
-          // height: trackHeight,
         });
-        // Tell GSAP to recalc all triggers
         ScrollTrigger.refresh();
       }
     };
@@ -65,24 +72,39 @@ useEffect(() => {
     const bottomSection = context.selector(".bottom-section")[0];
     const bottomSectionImage= context.selector(".bottomSectionImage")[0];
     const projectDetails = context.selector(".project-detiles")[0];
-    // const state = Flip.getState(".project-detiles");
+  
     gsap.set(track,{
         yPercent:0
     });
     gsap.set(bottomSectionImage,{
       scale:1.1
     });
-    gsap.set(projectDetails, { x: 0 });
+    gsap.set(projectDetails, { x: 0,y:0 });
     ScrollTrigger.create({
       trigger:scopeRef.current,
       start:"2% top",
       onEnter:()=>{
-        gsap.to(projectDetails,{
-          x:scrollSizeRef.current,
-          duration:0.6,
-          ease:"power1.out"
+        gsap.fromTo(projectDetails,
+          {
+            x:0,
+            y:0
+          },
+          {
+            x:media=="desktop"?scrollSizeRef.current:0,
+            y:media=="mobile"?scrollSizeRef.current:0,
+            duration:0.6,
+            ease:"power1.out"
         });
         setIsOpen(false);
+      },
+      onLeaveBack: () => {
+        gsap.to(projectDetails, {
+          x: 0,
+          y: 0,
+          duration: 0.6,
+          ease: "power1.out"
+        });
+        setIsOpen(true);
       }
     });
 
@@ -109,10 +131,11 @@ useEffect(() => {
         }
     });
 
-  }, { scope: scopeRef,dependencies:[closeX] });
+  }, { scope: scopeRef,dependencies:[closeX,media] });
   const handelEnter = contextSafe(()=>{
     gsap.to(".project-detiles",{
       x:0,
+      y:0,
       duration:0.6,
       ease:"power1.out"
     });
@@ -120,7 +143,8 @@ useEffect(() => {
   });
   const handelLeave = contextSafe(()=>{
     gsap.to(".project-detiles",{
-      x:closeX,
+      x:media=="desktop"?scrollSizeRef.current:0,
+      y:media=="mobile"?scrollSizeRef.current:0,
       duration:0.6,
       ease:"power1.in"
     });
@@ -129,7 +153,8 @@ useEffect(() => {
   const handleToggle = contextSafe(() => {
     gsap.killTweensOf(".project-detiles");
     gsap.to(".project-detiles", {
-      x: isOpen ? closeX : 0, // toggle
+      x: isOpen ? media=="desktop"?scrollSizeRef.current:0 : 0, // toggle
+      y: isOpen ? media=="mobile"?scrollSizeRef.current:0 : 0,
       duration: 0.6,
       ease: "power1.inOut"
     });
@@ -141,19 +166,50 @@ useEffect(() => {
       <div className="fixed top-4 left-4 md:top-6 md:left-6 lg:top-8 lg:left-8 w-8 h-8 text-sm rounded bg-[#CEC4FE] flex flex-row justify-center items-center hover:cursor-pointer z-[999]">
         [<MdArrowBack className="h-4" />]
       </div>
-      <div className="fixed inset-0 w-screen h-screen flex flex-row justify-end items-center pointer-events-none p-2 z-[900]">
-        <div onMouseEnter={handelEnter} onMouseLeave={handelLeave} className="project-detiles w-auto h-full flex flex-row items-center pointer-events-auto">
-          <div onClick={handleToggle} className="project-detile-handeler relative w-8 h-20 bg-[#F3F4EF] rounded-l shrink-0 flex flex-row justify-center items-center gap-1">
-            <div className="top-border absolute -top-2 right-0 w-2 h-2 ">
+      <div className="fixed inset-0 w-screen h-screen flex flex-col lg:flex-row justify-end items-center pointer-events-none p-2 z-[900]">
+        <div onMouseEnter={handelEnter} onMouseLeave={handelLeave} className="project-detiles w-full lg:w-auto h-auto lg:h-full flex flex-col lg:flex-row items-center pointer-events-auto">
+          <div onClick={handleToggle} className="project-detile-handeler relative w-20 h-8 lg:w-8 lg:h-20 bg-[#F3F4EF] rounded-t lg:rounded-l lg:rounded-se-none shrink-0 flex flex-col lg:flex-row justify-center items-center gap-1">
+            <div className="top-border absolute bottom-0 -left-2 lg:-left-[100%_+_8px] lg:-top-2 lg:right-0 w-2 h-2 ">
+              <svg xmlns="http://www.w3.org/2000/svg"  width="100%" viewBox="0 0 6 6" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M6 0C5.97799 3.31622 3.30304 5.99767 0.00649147 5.99767C0.00432909 5.99767 0.00216526 5.99768 0 5.99768H6V0Z" fill="#F3F4EF"></path></svg>
+            </div>
+            <div className="bottom-border absolute bottom-0 -right-2 lg:-bottom-2 lg:right-0 w-2 h-2 rotate-90 lg:rotate-270 ">
               <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 6 6" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M6 0C5.97799 3.31622 3.30304 5.99767 0.00649147 5.99767C0.00432909 5.99767 0.00216526 5.99768 0 5.99768H6V0Z" fill="#F3F4EF"></path></svg>
             </div>
-            <div className="bottom-border absolute -bottom-2 right-0 w-2 h-2 rotate-270">
-              <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 6 6" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M6 0C5.97799 3.31622 3.30304 5.99767 0.00649147 5.99767C0.00432909 5.99767 0.00216526 5.99768 0 5.99768H6V0Z" fill="#F3F4EF"></path></svg>
-            </div>
-            <div className="w-[1px] h-6 bg-black "></div>
-            <div className="w-[1px] h-6 bg-black "></div>
+            <div className="w-6 h-[1px] lg:w-[1px] lg:h-6 bg-black "></div>
+            <div className="w-6 h-[1px] lg:w-[1px] lg:h-6 bg-black "></div>
           </div>
-          <div className="w-full lg:w-sm flex-1 h-full rounded bg-[#F3F4EF]">
+          <div id="project-content" className=" w-full lg:w-[25rem] h-auto lg:h-full rounded bg-[#F3F4EF] py-10 lg:py-12 px-9 lg:px-10">
+            <div className="w-full h-full flex flex-col justify-between items-start gap-12">
+              <div className="w-full h-auto flex flex-col justify-center items-start gap-2 lg:gap-4">
+                <h1 className="text-3xl text-black font-editorial-thin font-bold mb-2 lg:mb-4">
+                  Mojito
+                </h1>
+                <p className="text-lg text-start font-editorial-thin">
+                  Mojito is a creative, animation-focused website built with React and GSAP to highlight modern frontend skills. It features smooth transitions, scroll-triggered effects, and elegant motion, offering an engaging browsing experience while exploring advanced UI animation techniques.
+                </p>
+                <p className="text text-start font-editorial-thin">
+                  Built with React.js for component-based UI, GSAP for smooth animations, and Tailwind CSS for responsive styling. Deployed using AWS S3 & CloudFront for fast and scalable delivery.
+                </p>
+                <p className='text-[10px] text-[#191B20] font-mono uppercase mt-2'>[scroll to explore]</p>
+              </div>
+              <div className="w-full h-auto flex flex-row justify-between items-end gap-4">
+                  <div className="w-auto h-auto flex flex-col justify-end items-start gap-2">
+                      <p className="font-mono text-start text-black text-sm/[14px] font-light">Interactive</p>
+                      <p className="font-mono text-start text-black text-sm/[14px]">Animation-rich</p>
+                  </div>
+                  <a
+                      href="https://mojito-cocktailes.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-end gap-1.5"
+                  >
+                      <p className="text-xs uppercase text-black">LIVE SITE</p>
+                      <span className="text-xs inline-flex items-center text-black">
+                      [ <MdArrowOutward /> ]
+                      </span>
+                  </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
