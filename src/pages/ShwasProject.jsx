@@ -9,7 +9,7 @@ const ShwasProject = () => {
       "Built intuitive dashboards with React.js and Tailwind CSS, enabling real-time video monitoring, alert visualization, and seamless user interaction",
     keywords: ["AI Surveillance", "Automated Alerts"],
     liveLink: "https://shwas.vercel.app/", 
-    video: "", // optional
+    video: "https://res.cloudinary.com/daoccmd1m/video/upload/v1759489187/shwas_owetiy.mp4", // optional
     photos: [
       "/images/optimized/shwas.avif",
       "/images/optimized/shwas2.avif",
