@@ -9,7 +9,7 @@ const CygnusProject = () => {
       "React.js for responsive UI, Tailwind CSS for styling, GSAP for animations, and Webflow for design experimentation.",
     keywords: ["Creative", "Festival Website"],
     liveLink: "https://cygnusfest.vercel.app/", // 👈 replace with actual
-    video: "", // optional
+    video: "https://res.cloudinary.com/daoccmd1m/video/upload/v1759489032/cygnus_p3byql.mp4", // optional
     photos: [
       "/images/optimized/cygnus.avif",
       "/images/optimized/cygnus3.avif",
@@ -17,9 +17,9 @@ const CygnusProject = () => {
       "/images/optimized/cygnus5.avif",
     ],
     next: {
-      title: "Scorify",
-      route: "/projects/scorify",
-      image: "/images/optimized/scorify.avif",
+      title: "SHWAS",
+      route: "/projects/shwas",
+      image: "/images/optimized/shwas.avif",
     },
   };
 

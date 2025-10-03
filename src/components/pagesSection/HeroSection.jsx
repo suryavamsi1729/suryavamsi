@@ -23,9 +23,9 @@ const HeroSection = ({loadingPageRef}) => {
             link:"/projects/cygnus"
         },
         {
-            imageurl: "/images/optimized/scorify.avif",
-            title:"SCORIFY",
-            link:"/projects/scorify"
+            imageurl: "/images/optimized/shwas.avif",
+            title:"SHWAS",
+            link:"/projects/shwas"
         },
     ]
     const {theme,toggleTheme} = useTheme();

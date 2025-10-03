@@ -7,7 +7,7 @@ import PageLayout from "../components/layout/PageLayout";
 import MojitoProject from "../pages/MojitoProject";
 import PhotoGramProject from "../pages/PhotoGramProject";
 import CygnusProject from "../pages/CygnusProject";
-import ScorifyProject from "../pages/ScrorifyProject";
+import ShwasProject from "../pages/ShwasProject";
 
 
 export default function AppRoutes() {
@@ -23,7 +23,7 @@ export default function AppRoutes() {
               <Route path="mojito" element={<MojitoProject />} />
               <Route path="photogram" element={<PhotoGramProject />} />
               <Route path="cygnus" element={<CygnusProject />} />
-              <Route path="scorify" element={<ScorifyProject />} />
+              <Route path="shwas" element={<ShwasProject />} />
             </Route>
             <Route path="*" element={<ErrorPage />} />
           </Routes>
