@@ -3,24 +3,29 @@ import { useGSAP } from '@gsap/react';
 import { ScrollTrigger, SplitText } from 'gsap/all';
 import { useTheme } from '../../hooks/useTheme';
 import gsap from 'gsap';
+import { Link } from 'react-router-dom';
 
 const HeroSection = ({loadingPageRef}) => {
     const projects = [
         {
             imageurl:"/images/optimized/drink4.avif",
-            title: "MOJITO"
+            title: "MOJITO",
+            link:"/projects/mojito"
         },
         {
             imageurl:"/images/optimized/photo.avif",
             title: "PHOTOGRAM",
+            link:"/projects/photogram"
         },
         {
             imageurl:"/images/optimized/cygnus1.avif",
             title: "CYGNUS",
+            link:"/projects/cygnus"
         },
         {
             imageurl: "/images/optimized/scorify.avif",
-            title:"SCORIFY"
+            title:"SCORIFY",
+            link:"/projects/scorify"
         },
     ]
     const {theme,toggleTheme} = useTheme();
@@ -143,12 +148,15 @@ const HeroSection = ({loadingPageRef}) => {
                     {
                         projects.map((project,ind)=>(
                             <div key={ind} className='flex-1 flex flex-col h-full justify-start items-start gap-2'>
-                                <div onMouseEnter={handelMouseEnter}  onMouseLeave={handleMouseLeave} className=' group z-10 flex flex-col h-full justify-start items-start gap-2'>
+                            
+                                <div onMouseEnter={handelMouseEnter}  onMouseLeave={handleMouseLeave} className=' group z-10 flex flex-col h-full justify-start items-start gap-2 hover:cursor-pointer'>
                                     <p className={`project-count-text text-[10px] ${theme=="light"?"text-black":"text-white/40"} transition-colors duration-300 ease-in-out  group-hover:text-white`}>[{String(ind + 1).padStart(2, "0")}]</p>
-                                    <div className='bottom-img'>
+                                    <Link to={project.link}  className='bottom-img group-hover:border border-white overflow-clip transition-[border] duration-300 ease-in-out'>
                                         <img alt="img"  src={`${project.imageurl}`} className={`w-full aspect-4/5 object-cover text-[#191B20] `}/>
-                                    </div>
+                                    </Link>
+                                    <link rel="prefetch" href={project.link}/>
                                 </div>
+                                
                                 <div className='img-slider absolute inset-0 w-full h-full overflow-hidden'>
                                     <img alt="img"  className=" w-full h-full object-cover" src={`${project.imageurl}`}/>
                                     <div className='grid grid-cols-1  md:grid-cols-12 absolute inset-[50%_0%_auto] px-4 overflow-hidden'>
