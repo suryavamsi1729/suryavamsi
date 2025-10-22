@@ -1,4 +1,5 @@
 
+import SEO from "../components/common/Seo";
 import ProjectTemplate from "../components/projectSections/ProjectTemplate";
 const MojitoProject = () => {
   const mojitoData = {
@@ -24,7 +25,18 @@ const MojitoProject = () => {
     },
   };
 
-  return <ProjectTemplate project={mojitoData} />;
+  return (
+    <>
+      <SEO
+        title="Mojito Project | React + GSAP Animated Website | Surya Vamsi Doddi"
+        description="Mojito is a visually engaging, animation-rich website built with React.js, Tailwind CSS, and GSAP. It showcases modern frontend development and creative UI animations."
+        keywords="Mojito, React Project, GSAP, Tailwind CSS, Animation Website, Frontend Developer, Surya Vamsi Doddi, Creative Web Design, Smooth Animations, AWS S3, CloudFront"
+        image="https://suryavamsi.vercel.app/images/optimized/mojito.avif"
+        url="https://suryavamsi.vercel.app/projects/mojito"
+      />
+      <ProjectTemplate project={mojitoData} />
+    </>
+  );
 };
 
 export default MojitoProject;

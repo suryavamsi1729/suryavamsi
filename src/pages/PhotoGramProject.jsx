@@ -1,3 +1,4 @@
+import SEO from "../components/common/Seo";
 import ProjectTemplate from "../components/projectSections/ProjectTemplate";
 
 const PhotoGramProject = () => {
@@ -23,7 +24,18 @@ const PhotoGramProject = () => {
     },
   };
 
-  return <ProjectTemplate project={photogramData} />;
+  return (
+    <>
+      <SEO
+        title="PhotoGram Project | React + Firebase Social Photo Sharing App | Surya Vamsi Doddi"
+        description="PhotoGram is a photo-sharing web app built with React, TypeScript, and Firebase. Users can upload, share, and explore images in a clean, responsive UI using Tailwind CSS and Uploadcare."
+        keywords="PhotoGram, React Project, Firebase, TypeScript, Tailwind CSS, Uploadcare, shadcn/ui, Photo Sharing App, Social Media Platform, Frontend Developer, Surya Vamsi Doddi, Web Application"
+        image="https://suryavamsi.vercel.app/images/optimized/photogram.avif"
+        url="https://suryavamsi.vercel.app/projects/photogram"
+      />
+      <ProjectTemplate project={photogramData} />
+    </>
+  );
 };
 
 export default PhotoGramProject;

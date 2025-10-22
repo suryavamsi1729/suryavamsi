@@ -1,3 +1,4 @@
+import SEO from "../components/common/Seo";
 import ProjectTemplate from "../components/projectSections/ProjectTemplate";
 
 const ShwasProject = () => {
@@ -23,7 +24,18 @@ const ShwasProject = () => {
     },
   };
 
-  return <ProjectTemplate project={shwasData} />;
+  return (
+    <>
+    <SEO
+        title="SHWAS Project | AI-Powered Surveillance System | Surya Vamsi Doddi"
+        description="SHWAS is an AI-powered surveillance system using gesture recognition, CNN, LSTM, and YOLO. It provides real-time alerts, video captioning with Hugging Face models, and an intuitive React + Tailwind UI for secure monitoring."
+        keywords="SHWAS, AI Surveillance, Gesture Recognition, Abnormal Behavior Detection, CNN, LSTM, YOLO, React, Tailwind CSS, Real-time Alerts, Hugging Face, Security System, Surya Vamsi Doddi, Web Application"
+        image="https://suryavamsi.vercel.app/images/optimized/shwas.avif"
+        url="https://suryavamsi.vercel.app/projects/shwas"
+      />
+    <ProjectTemplate project={shwasData} />
+    </>
+  );
 };
 
 export default ShwasProject;

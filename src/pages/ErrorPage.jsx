@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import SplineModel from "../components/animations/SplineModel";
 import LandingPageTransition from "../components/animations/LandingPageTransition";
 import { useTheme } from "../hooks/useTheme";
+import SEO from "../components/common/Seo";
 
 export default function ErrorPage() {
   const navigate = useNavigate();
@@ -19,6 +20,14 @@ export default function ErrorPage() {
       navigate(path);
   };
   return (
+<>
+    <SEO
+        title="Page Not Found | Surya Vamsi Doddi"
+        description="Oops! The page you’re looking for doesn’t exist. Return to the home page to explore Surya Vamsi Doddi’s portfolio and projects."
+        url="https://suryavamsi.vercel.app/"
+        image="https://suryavamsi.vercel.app/images/optimized/suryavamsi.avif"
+        keywords="404 page, not found, Surya Vamsi Doddi portfolio, frontend developer, React, Tailwind CSS, GSAP"
+      />
     <div className="relative w-screen min-h-screen flex flex-col items-center justify-centen text-center">
       <LandingPageTransition ref={loadingPageRef} loading={loading}/>
       <SplineModel className={"z-0"} setLoading={setLoading}  url={"https://prod.spline.design/P4p1Oh7v7Mf5sbdh/scene.splinecode"}/>
@@ -29,5 +38,6 @@ export default function ErrorPage() {
       </div>
       
     </div>
+  </>
   );
 }

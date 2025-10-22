@@ -11,8 +11,10 @@ import WorkSection from '../components/pagesSection/WorkSection';
 import SkillsSection from '../components/pagesSection/SkillsSection';
 import ContactSection from '../components/pagesSection/ContactSection';
 import { ScrollTrigger } from 'gsap/all';
+import SEO from '../components/common/Seo';
 
 const HomePage = () => {
+    
     const loadingPageRef = useRef(null);
     const [loading,setLoading] = useState(true);
     const parentRef = useRef(null);
@@ -41,6 +43,11 @@ const HomePage = () => {
     },{scope:parentRef});
     return (
         <>
+            <SEO
+                title="Surya Vamsi Doddi | Frontend Developer & AWS Cloud Practitioner"
+                description="Portfolio of Surya Vamsi Doddi — building responsive, animated web experiences using React, Tailwind CSS, GSAP, and AWS Cloud."
+                url="https://suryavamsi.vercel.app/"
+            />
             <LandingPageTransition ref={loadingPageRef} loading={loading}/>
             <SplineModel className={"z-0"} setLoading={setLoading}  url={"https://prod.spline.design/jR40IUSh8RJ0R38K/scene.splinecode"}/>
             <div ref={parentRef} className='relative w-full z-10'>
