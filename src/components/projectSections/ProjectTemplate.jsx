@@ -210,8 +210,8 @@ const ProjectTemplate = ({project}) => {
                       rel="noopener noreferrer"
                       className="flex items-end gap-1.5"
                   >
-                      <p className="text-xs uppercase text-black">LIVE SITE</p>
-                      <span className="text-xs inline-flex items-center text-black">
+                      <p className="text-base font-medium uppercase text-black">LIVE SITE</p>
+                      <span className="text-base font-medium inline-flex items-center text-black">
                       [ <MdArrowOutward /> ]
                       </span>
                   </a>
