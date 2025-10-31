@@ -142,7 +142,7 @@ const AppHeader = () => {
             </div>
           </div>
           <div className="font-mono text-[10px] md:text-xs text-[#707173] uppercase">
-            FRONTEND DEVELOPER
+            FULLSTACK DEVELOPER
           </div>
         </div>
         <div className="col-start-5 col-span-2 md:col-start-10 md:col-span-3 lg:col-start-9 lg:col-span-2 flex flex-col gap-0.5 z-50">

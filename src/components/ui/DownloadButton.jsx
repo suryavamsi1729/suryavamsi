@@ -34,7 +34,7 @@ const DownloadButton = () => {
   return (
     <a
       ref={btnRef}
-      href="/resume/suryavamsi_resume _recent_with_AWS.pdf"
+      href="/resume/suryavamsi_resume (2).pdf"
       download="SuryaVamsi_Resume.pdf"
       className="w-auto flex items-center font-mono gap-2 px-3 py-2 text-sm rounded-lg tracking-wide border"
     >
